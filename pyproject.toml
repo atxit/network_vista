@@ -6,10 +6,16 @@ authors = ["Antony <47122295+atxit@users.noreply.github.com.>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
+cryptography = "^44.0.0"
+requests = "^2.32.3"
+pyyaml = "^6.0.2"
+docker = "^7.1.0"
+pymongo = "^4.10.1"
+black = "^24.10.0"
+colorlog = "^6.9.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
