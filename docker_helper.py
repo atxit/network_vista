@@ -206,7 +206,7 @@ class DockerHelper:
         client = docker.from_env()
         try:
             container = client.containers.run(
-                image="atxitconsulting/network_vista_nginx:latest",
+                image="networkvista/network_vista_nginx:latest",
                 name="network_vista_nginx",
                 detach=True,
                 ports={"443": "443"},
@@ -245,11 +245,14 @@ class DockerHelper:
         self.stop_container_by_name(container_name=container_name)
         client = docker.from_env()
         if container_name == "frontend":
-            command = "python frontend/start_website.py"
+            #command = "python frontend/start_website.py"
+            command = "./dist/start_website"
         elif container_name == "backend":
-            command = "python data_processing/start_backend.py"
+            command = "./dist/start_backend"
+            #command = "python data_processing/start_backend.py"
         elif container_name == "collector":
-            command = "python collector/start_collector.py"
+            command = "./dist/start_collector"
+            #command = "python collector/start_collector.py"
         else:
             self.print_stdscr("container name not matched")
             sys.exit(1)
@@ -263,7 +266,7 @@ class DockerHelper:
         }
         try:
             _ = client.containers.run(
-                image="atxitconsulting/network_vista_core:latest",
+                image="networkvista/network_vista_core:latest",
                 name=container_name,
                 detach=True,
                 network="docker_network",
@@ -352,7 +355,12 @@ class DockerHelper:
                 to_print = to_print.split("\n")
             for i, str_line in enumerate(to_print):
                 self.stdscr.addstr(i, 0, str_line)
-        self.stdscr.refresh()
+            self.stdscr.refresh()
+        else:
+            if isinstance(to_print, str):
+                to_print = to_print.split("\n")
+            for i, str_line in enumerate(to_print):
+                print_to_screen(str_line)
 
     def docker_pull(self):
         self.print_stdscr(
@@ -374,7 +382,7 @@ class DockerHelper:
             self.print_stdscr(f"docker pull starting for {docker_image}")
 
             result = subprocess.run(
-                f"docker pull atxitconsulting/{docker_image}:latest",
+                f"docker pull networkvista/{docker_image}:latest",
                 shell=True,
                 capture_output=True,
                 text=True,

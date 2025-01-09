@@ -73,6 +73,11 @@ def check_docker_installed():
         return False
 
 
+def connectivity_tests():
+    docker_helper = DockerHelper()
+    docker_helper.connectivity_tests()
+
+
 if __name__ == "__main__":
     if not check_docker_installed():
         print_to_screen("docker not installed or running", log_level="error")
@@ -80,6 +85,7 @@ if __name__ == "__main__":
 
     write_system_cfg_file()
     remove_existing_db_deployment()
+    connectivity_tests()
     add_restricted_account()
     add_system_certs()
 
