@@ -498,8 +498,7 @@ class DockerHelper:
             self.print_stdscr(
                 [
                     f"wrote private key to {private_key}",
-                    f"wrote public key to {public_cert}",
-                    "enter to exit",
+                    f"wrote public key to {public_cert}"
                 ]
             )
 
@@ -510,7 +509,6 @@ class DockerHelper:
                 [
                     f"wrote private key to {private_key}",
                     f"wrote public key to {public_cert}",
-                    "enter to exit",
                 ]
             )
 
