@@ -56,20 +56,38 @@ python3 setup.py
 
 Run python cluster_controller.py, this will start the controller UI. Within the controller UI, you can:
 
-* Start the cluster. 
-* Stop the cluster.
-* Check the status of the cluster.
-* Import the Network Vista core images or update the existing image.
+* start the cluster. 
+* stop the cluster.
+* check the status of the cluster.
+* import the Network Vista core images or update the existing images.
 * test connectivity to the Docker Hub.
 
 ```bash
 python3 cluster_controller.py
 ```
+
+Step One: Pull Core Images
+
 Note: During the first installation, the cluster controller will pull the Network Vista core image. As these core images are fairly large, please be patient.
 
-Cluster Status
+![readmeImages/img10.png](readmeImages/img10.png)
 
-![readmeImages/start_cluster_menu.png](readmeImages/start_cluster_menu.png)
+Step Two: Check the Cluster Status, all containers should be displaying down.
+
+![readmeImages/img11.png](readmeImages/img11.png)
+
+Step Three: Start the Cluster
+
+![readmeImages/img0.png](readmeImages/img0.png)
+
+![readmeImages/img1.png](readmeImages/img1.png)
+
+Step Four: Check Cluster Status
+
+![readmeImages/img2.png](readmeImages/img2.png)
+
+![readmeImages/img3.png](readmeImages/img3.png)
+
 
 
 Click https://127.0.0.1 to access Network Vista.
