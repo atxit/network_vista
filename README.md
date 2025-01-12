@@ -1,6 +1,6 @@
-# Network Vista Overview (beta release 0.9)
+# Network Vista (beta 0.9)
 
-Introducing Network Vista, a comprehensive platform designed to streamline network data collection and ensure compliance. The Network Vista platform offers a holistic view of your network by enabling users to:
+Introducing Network Vista, a comprehensive platform designed to streamline network data collection and ensure compliance. The Network Vista platform offers a holistic view of your network.
 
 * Define Database Structures: Easily set up database tables tailored to your network's needs.
 * Track change: Effortlessly monitor and record modifications within your tables, providing clear insights into what changed and when.
@@ -10,7 +10,7 @@ Introducing Network Vista, a comprehensive platform designed to streamline netwo
 * Track Configuration Changes: Maintain a comprehensive record of changes within any table, facilitating effective change management.
 * Implement Custom Tests: Create user-defined tests within tables to ensure compliance and monitor network performance.
 * Support Configuration Auditing: Conduct thorough configuration audits for both SSH-enabled devices and Cisco Meraki platforms, enhancing network security and compliance.
-* API Support: Access all table data via robust API integration, enabling seamless integration with other systems and enhancing automation capabilities.
+* API Support for All user defined tables: Access all table data via robust API integration, enabling seamless integration with other systems and enhancing automation capabilities.
 * Support LDAP Integration: Integrate with Lightweight Directory Access Protocol (LDAP) servers to centralize authentication and streamline user management.
 * Implement Role-Based Access Control (RBAC): Define and enforce user roles and permissions to ensure secure and appropriate access to Network Vista resources.
 
