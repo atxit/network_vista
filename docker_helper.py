@@ -347,6 +347,7 @@ class DockerHelper:
             self.start_core_container(container_name)
         self.stop_container_by_name("nginx")
         self.start_nginx()
+        self.print_stdscr(f"completed, push Enter to exit")
 
     def print_stdscr(self, to_print):
         if self.stdscr is not None:
@@ -480,6 +481,7 @@ class DockerHelper:
         for container_name, active in expected_containers_dict.items():
             result.append(f'{container_name} is {"active" if active else "down"}')
 
+        result.append('completed, press enter to exit')
         self.print_stdscr(result)
 
     def write_cert_and_key(self, private_key_pem, certificate_pem):
@@ -498,8 +500,7 @@ class DockerHelper:
             self.print_stdscr(
                 [
                     f"wrote private key to {private_key}",
-                    f"wrote public key to {public_cert}",
-                    "enter to exit",
+                    f"wrote public key to {public_cert}"
                 ]
             )
 
@@ -510,7 +511,6 @@ class DockerHelper:
                 [
                     f"wrote private key to {private_key}",
                     f"wrote public key to {public_cert}",
-                    "enter to exit",
                 ]
             )
 
