@@ -108,8 +108,7 @@ To stop the cluster, please select the Stop Cluster option.
 
 Click https://127.0.0.1 to access Network Vista.
 
-Once you have access, checkout my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon how to navigate the Network Vista or review the "how to" guides which are found within the howTo directory (located within this repository)
+# Support in using Network Vista
 
-
-
-
+For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon or 
+review the "how to" guides which are found within the howTo directory, located within this repository
