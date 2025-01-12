@@ -11,6 +11,8 @@ Introducing Network Vista, a comprehensive platform designed to streamline netwo
 * Implement Custom Tests: Create user-defined tests within tables to ensure compliance and monitor network performance.
 * Support Configuration Auditing: Conduct thorough configuration audits for both SSH-enabled devices and Cisco Meraki platforms, enhancing network security and compliance.
 * API Support: Access all table data via robust API integration, enabling seamless integration with other systems and enhancing automation capabilities.
+* Support LDAP Integration: Integrate with Lightweight Directory Access Protocol (LDAP) servers to centralize authentication and streamline user management.
+* Implement Role-Based Access Control (RBAC): Define and enforce user roles and permissions to ensure secure and appropriate access to Network Vista resources.
 
 With Network Vista, gain unparalleled insights into your network's data, ensuring both efficiency and compliance.
 
@@ -26,7 +28,7 @@ Please ensure that you have the following prerequisites and dependencies in plac
 
 Note: these installation Instructions has only been tested against Linux Based platforms. 
 
-Clone the repo
+Clone this repository
 ```bash
 git clone https://github.com/atxit/network_vista.git
 ```
