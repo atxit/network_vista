@@ -1,10 +1,16 @@
-# Network Vista Overview
+# Network Vista Overview (beta release 0.9)
 
-Network Vista is a network data collection and compliance platform. Users can:
+Introducing Network Vista, a comprehensive platform designed to streamline network data collection and ensure compliance. Our platform offers a holistic view of your network by enabling users to:
 
-* Collect Data: Gather information from network devices.
-* Parse and Structure: Organize the collected data into a structured database.
-* Query and Test: Execute queries and create tests against the stored data to ensure compliance and analyze network performance.
+* Define Database Structures: Easily set up database tables tailored to your network's needs.
+* Automate Data Population: Specify 'show' commands to automatically populate tables with relevant data.
+* Utilize Advanced Parsing: Leverage SSH for secure device communication and employ NTC Templates with TextFSM for efficient data parsing.
+* Integrate Custom Meraki Platform Parsers: Seamlessly incorporate bespoke parsers for Cisco Meraki devices, ensuring accurate data collection and analysis.
+* Track Configuration Changes: Maintain a comprehensive record of changes within any table, facilitating effective change management.
+* Implement Custom Tests: Create user-defined tests within tables to ensure compliance and monitor network performance.
+* Support Configuration Auditing: Conduct thorough configuration audits for both SSH-enabled devices and Cisco Meraki platforms, enhancing network security and compliance.
+
+With Network Vista, gain unparalleled insights into your network's data, ensuring both efficiency and compliance.
 
 # Prerequisites
 
@@ -40,15 +46,25 @@ Run setup.sh, this will:
 
 Run python setup.py file, this will:
 
-* generate default system passwords which will be used by Network Vista.
+* generate system default passwords, which is used by Network Vista. These are found in the system.yml file (found in the root of the project)
+* create a default location for the Mongo Databases (~/data/db).
 * test connectivity to the docker hub.
 * pull the mongo Docker image.
 * enable a Mongo password on each database
-* generate default SSL certs which are used by the NGINX container. 
+* generate default SSL certs which are stored in ~/network_vista_certs/ and used by the NGINX container. 
+
 
 System passwords are found in the system.yml file, these are generated during the setup process and are unique to each deployment.
 The Network Vista Root password is found within system.yml. 
 If you wish to change the root password, simply update the root password and save the file. If the cluster is operationally, please restart it. 
+
+If you wish to change the system generated SSL certs:
+
+* shutdown the cluster.
+* remove the existing certs.
+* replace the SSL certs. 
+* rename the new public cert and private key using the following: network_vista_private_key.pem & network_vista_public_cert.pem
+* restart the cluster.
 
 ```bash
 python3 setup.py
@@ -82,13 +98,13 @@ Step Three: Start the Cluster
 
 ![readmeImages/img1.png](readmeImages/img1.png)
 
-Step Four: Check Cluster Status
+Step Four: Check Cluster Status, all containers should be active. 
 
 ![readmeImages/img2.png](readmeImages/img2.png)
 
 ![readmeImages/img3.png](readmeImages/img3.png)
 
-
+To stop the cluster, please select the Stop Cluster option. 
 
 Click https://127.0.0.1 to access Network Vista.
 
