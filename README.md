@@ -1,8 +1,4 @@
-# Network Vista Setup Instructions
-
 # Network Vista Overview
-
-Your original statement provides a clear overview of Network Vista. To enhance clarity and readability, consider the following revision:
 
 Network Vista is a network data collection and compliance platform. Users can:
 
@@ -42,31 +38,43 @@ Run setup.sh, this will:
 . setup.sh
 ```
 
+Run python setup.py file, this will:
 
-Install poetry project dependencies. 
-```bash
-poetry install
-```
-set python path (if needed)
+* generate default system passwords which will be used by Network Vista.
+* test connectivity to the docker hub.
+* pull the mongo Docker image.
+* enable a Mongo password on each database
+* generate default SSL certs which are used by the NGINX container. 
 
-to verify 
-```bash
-echo $PYTHONPATH
-```
-if nothing is returned, set using:
-```bash
-. set_python_path.sh
-```
-
-Ensure MongoDB is up and running.
+System passwords are found in the system.yml file, these are generated during the setup process and are unique to each deployment.
+The Network Vista Root password is found within system.yml. 
+If you wish to change the root password, simply update the root password and save the file. If the cluster is operationally, please restart it. 
 
 ```bash
-make start
+python3 setup.py
 ```
 
-Click http://127.0.0.1:5020/acitfserver to access the project's web interface.
+Run python cluster_controller.py, this will start the controller UI. Within the controller UI, you can:
 
-Once you have access, checkout my YouTube video https://youtu.be/82LW_qfmCuA on how to navigate the project or review the "how to" guides found within the howTo directory (located within this repository)
+* Start the cluster. 
+* Stop the cluster.
+* Check the status of the cluster.
+* Import the Network Vista core images or update the existing image.
+* test connectivity to the Docker Hub.
+
+```bash
+python3 cluster_controller.py
+```
+Note: During the first installation, the cluster controller will pull the Network Vista core image. As these core images are fairly large, please be patient.
+
+Cluster Status
+
+![readmeImages/start_cluster_menu.png](readmeImages/start_cluster_menu.png)
+
+
+Click https://127.0.0.1 to access Network Vista.
+
+Once you have access, checkout my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon how to navigate the Network Vista or review the "how to" guides which are found within the howTo directory (located within this repository)
 
 
 
