@@ -5,7 +5,7 @@ Introducing Network Vista, a comprehensive platform designed to streamline netwo
 * Define Database Structures: Easily set up database tables tailored to your network's needs.
 * Track change: Effortlessly monitor and record modifications within your tables, providing clear insights into what changed and when.
 * Automate Data Population: Specify 'show' commands to automatically populate tables with relevant data.
-* Utilize Advanced Parsing: Leverage SSH for secure device communication and employ NTC Templates with TextFSM for efficient data parsing.
+* Utilise Advanced Parsing: Leverage SSH for secure device communication and employ NTC Templates for efficient data parsing or utilise the inbuilt 'build your own Parser' module (PPT).
 * Integrate Custom Meraki Platform Parsers: Seamlessly incorporate bespoke parsers for Cisco Meraki devices, ensuring accurate data collection and analysis.
 * Track Configuration Changes: Maintain a comprehensive record of changes within any table, facilitating effective change management.
 * Implement Custom Tests: Create user-defined tests within tables to ensure compliance and monitor network performance.
