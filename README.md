@@ -53,7 +53,7 @@ Run python setup.py file, this will:
 * generate system default passwords, which is used by Network Vista. These are found in the system.yml file (found in the root of the project)
 * create a default location for the Mongo Databases (~/data/db).
 * test connectivity to the docker hub.
-* pull the mongo Docker image.
+* pull the Mongo Docker image.
 * enable a Mongo password on each database
 * generate default SSL certs which are stored in ~/network_vista_certs/ and used by the NGINX container. 
 
