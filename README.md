@@ -1,14 +1,16 @@
 # Network Vista Overview (beta release 0.9)
 
-Introducing Network Vista, a comprehensive platform designed to streamline network data collection and ensure compliance. Our platform offers a holistic view of your network by enabling users to:
+Introducing Network Vista, a comprehensive platform designed to streamline network data collection and ensure compliance. The Network Vista platform offers a holistic view of your network by enabling users to:
 
 * Define Database Structures: Easily set up database tables tailored to your network's needs.
+* Track change: Effortlessly monitor and record modifications within your tables, providing clear insights into what changed and when.
 * Automate Data Population: Specify 'show' commands to automatically populate tables with relevant data.
 * Utilize Advanced Parsing: Leverage SSH for secure device communication and employ NTC Templates with TextFSM for efficient data parsing.
 * Integrate Custom Meraki Platform Parsers: Seamlessly incorporate bespoke parsers for Cisco Meraki devices, ensuring accurate data collection and analysis.
 * Track Configuration Changes: Maintain a comprehensive record of changes within any table, facilitating effective change management.
 * Implement Custom Tests: Create user-defined tests within tables to ensure compliance and monitor network performance.
 * Support Configuration Auditing: Conduct thorough configuration audits for both SSH-enabled devices and Cisco Meraki platforms, enhancing network security and compliance.
+* API Support: Access all table data via robust API integration, enabling seamless integration with other systems and enhancing automation capabilities.
 
 With Network Vista, gain unparalleled insights into your network's data, ensuring both efficiency and compliance.
 
@@ -108,7 +110,7 @@ To stop the cluster, please select the Stop Cluster option.
 
 Click https://127.0.0.1 to access Network Vista.
 
-# Support in using Network Vista
+# Support with using Network Vista
 
 For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon or 
 review the "how to" guides which are found within the howTo directory, located within this repository
