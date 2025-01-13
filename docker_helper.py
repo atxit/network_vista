@@ -3,6 +3,7 @@ import sys
 import os
 import time
 from pathlib import Path
+import platform
 from datetime import datetime, timedelta
 from requests import get
 import requests
@@ -31,6 +32,17 @@ def read_system_file():
         return yaml.safe_load(file_handler)
 
 
+def is_macbook_with_apple_processor():
+    if platform.system() == "Darwin":
+        try:
+            result = subprocess.check_output(["sysctl", "-n", "machdep.cpu.brand_string"], text=True)
+            if "Apple" in result:
+                return True
+        except Exception as e:
+            print(f"Error detecting processor: {e}")
+    return False
+
+
 class DockerHelper:
     def __init__(self, stdscr=None):
         self.args = None
@@ -45,6 +57,17 @@ class DockerHelper:
         else:
             print("system configuration file missing, terminating...")
             sys.exit(1)
+
+        if is_macbook_with_apple_processor():
+            self.hub_core_image = "networkvista/network_vista_core_apple:latest"
+            self.hub_nginx_image = "networkvista/network_vista_nginx_apple:latest"
+            self.local_core_image = "network_vista_core_apple:latest"
+            self.local_nginx_image = "network_vista_nginx_apple:latest"
+        else:
+            self.hub_core_image = "networkvista/network_vista_core:latest"
+            self.hub_nginx_image = "networkvista/network_vista_nginx:latest"
+            self.local_core_image = "network_vista_core:latest"
+            self.local_nginx_image = "network_vista_nginx:latest"
 
     def parse(self):
         parser = argparse.ArgumentParser()
@@ -206,7 +229,7 @@ class DockerHelper:
         client = docker.from_env()
         try:
             container = client.containers.run(
-                image="networkvista/network_vista_nginx:latest",
+                image=self.local_nginx_image,
                 name="network_vista_nginx",
                 detach=True,
                 ports={"443": "443"},
@@ -221,7 +244,7 @@ class DockerHelper:
         except docker.errors.NotFound as msg:
             try:
                 container = client.containers.run(
-                    image="network_vista_nginx:latest",
+                    image=self.hub_nginx_image,
                     name="network_vista_nginx",
                     detach=True,
                     ports={"443": "443"},
@@ -245,14 +268,11 @@ class DockerHelper:
         self.stop_container_by_name(container_name=container_name)
         client = docker.from_env()
         if container_name == "frontend":
-            #command = "python frontend/start_website.py"
-            command = "./dist/start_website"
+            command = "./dist/boot -b frontend"
         elif container_name == "backend":
-            command = "./dist/start_backend"
-            #command = "python data_processing/start_backend.py"
+            command = "./dist/boot -b backend"
         elif container_name == "collector":
-            command = "./dist/start_collector"
-            #command = "python collector/start_collector.py"
+            command = "./dist/boot -b collector"
         else:
             self.print_stdscr("container name not matched")
             sys.exit(1)
@@ -266,7 +286,7 @@ class DockerHelper:
         }
         try:
             _ = client.containers.run(
-                image="networkvista/network_vista_core:latest",
+                image=self.local_core_image,
                 name=container_name,
                 detach=True,
                 network="docker_network",
@@ -277,7 +297,7 @@ class DockerHelper:
         except docker.errors.NotFound as msg:
             try:
                 _ = client.containers.run(
-                    image="network_vista_core:latest",
+                    image=self.hub_core_image,
                     name=container_name,
                     detach=True,
                     network="docker_network",
@@ -350,51 +370,77 @@ class DockerHelper:
         self.print_stdscr(f"completed, push Enter to exit")
 
     def print_stdscr(self, to_print):
+        if isinstance(to_print, str):
+            to_print = to_print.split("\n")
+
         if self.stdscr is not None:
             self.stdscr.clear()
-            if isinstance(to_print, str):
-                to_print = to_print.split("\n")
-            for i, str_line in enumerate(to_print):
-                self.stdscr.addstr(i, 0, str_line)
+            height, width = self.stdscr.getmaxyx()
+            start_row = (height // 2) - (len(to_print) // 2)
+
+            for idx, line in enumerate(to_print):
+                x_pos = (width // 2) - (len(line) // 2)
+                y_pos = start_row + idx
+                self.stdscr.addstr(y_pos, x_pos, line)
+
             self.stdscr.refresh()
         else:
-            if isinstance(to_print, str):
-                to_print = to_print.split("\n")
-            for i, str_line in enumerate(to_print):
-                print_to_screen(str_line)
+            for line in to_print:
+                print_to_screen(line)
 
-    def docker_pull(self):
+    def docker_pull_image(self, image_name):
         self.print_stdscr(
             "### NOTE: Please be patient, some images are fairly large ###"
         )
-        time.sleep(3)
-        self.print_stdscr("docker pull starting for Mongo DB")
+        time.sleep(2)
+        if isinstance(image_name, str):
+            image_name = image_name.split()
 
-        result = subprocess.run(
-            f"docker pull mongo:latest", shell=True, capture_output=True, text=True
-        )
-
-        if result.returncode != 0:
-            self.print_stdscr(result.stderr)
-        else:
-            self.print_stdscr(result.stdout)
-
-        for docker_image in ["network_vista_nginx", "network_vista_core"]:
-            self.print_stdscr(f"docker pull starting for {docker_image}")
-
-            result = subprocess.run(
-                f"docker pull networkvista/{docker_image}:latest",
-                shell=True,
-                capture_output=True,
-                text=True,
-            )
-            if result.returncode != 0:
-                self.print_stdscr(result.stderr)
+        for image in image_name:
+            if image == 'network_vista_core':
+                image_id = self.hub_core_image
+            elif image == 'network_vista_nginx':
+                image_id = self.hub_nginx_image
             else:
-                self.print_stdscr(result.stdout)
+                image_id = image
 
-            self.print_stdscr(f"docker pull completed for {docker_image}")
+            client = docker.APIClient()
+            try:
+                response = client.pull(image_id, stream=True, decode=True)
 
+                total_layers = 0
+                downloaded_layers = 0
+                progress_tracker = {}
+                print_to_screen(f"Pulling image: {image_id}")
+
+                for event in response:
+                    status = event.get("status")
+                    layer_id = event.get("id")
+                    progress = event.get("progressDetail")
+                    if status == "Downloading" and progress:
+                        current = progress.get("current", 0)
+                        total = progress.get("total", 1)
+                        progress_tracker[layer_id] = (current, total)
+
+                    elif status == "Extracting":
+                        if layer_id not in progress_tracker:
+                            downloaded_layers += 1
+                            total_layers += 1
+
+                    elif status == "Pull complete":
+                        if layer_id not in progress_tracker:
+                            total_layers += 1
+                        downloaded_layers += 1
+                        progress_tracker[layer_id] = (1, 1)
+
+                    if total_layers > 0:
+                        overall_progress = (downloaded_layers / total_layers) * 100
+                        self.print_stdscr(f"Progress: {overall_progress:.2f}%")
+
+                    self.print_stdscr(f"Status: {status} | Layer: {layer_id} | Progress: {progress}")
+            except docker.errors.NotFound:
+                self.print_stdscr(f'{image_id} not found')
+                time.sleep(4)
         self.prune_images()
 
     def create_docker_network(self):
@@ -427,6 +473,7 @@ class DockerHelper:
         self.print_stdscr(
             [
                 f"Docker connectivity test results: {'successful' if docker_url else 'unsuccessful'}",
+                'press Enter to exit'
             ]
         )
 
