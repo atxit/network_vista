@@ -61,7 +61,8 @@ class ClusterController:
                         env_setup.stop_all_containers()
 
                     elif menu_items[selected_option] == "upgrade cluster":
-                        env_setup.docker_pull()
+                        env_setup.docker_pull_image('mongo')
+                        env_setup.docker_pull_image(["network_vista_nginx", "network_vista_core"])
 
                     elif menu_items[selected_option] == "start cluster":
                         env_setup.start_cluster()

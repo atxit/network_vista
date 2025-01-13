@@ -51,6 +51,7 @@ def remove_existing_db_deployment():
 
 def add_restricted_account():
     docker_helper = DockerHelper()
+    docker_helper.docker_pull_image('mongo')
     docker_helper.create_mongo_dbs()
     docker_helper.add_restricted_account_to_dbs()
     print_to_screen(
@@ -69,7 +70,8 @@ def check_docker_installed():
         client = docker.from_env()
         client.ping()
         return True
-    except docker.errors.DockerException:
+    except docker.errors.DockerException as msg:
+        print(msg)
         return False
 
 
