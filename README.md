@@ -16,7 +16,7 @@ Introducing Network Vista, a comprehensive platform designed to streamline netwo
 
 With Network Vista, gain unparalleled insights into your network's data, ensuring both efficiency and compliance.
 
-# Prerequisites
+### Prerequisites
 
 Please ensure that you have the following prerequisites and dependencies in place
 
@@ -24,7 +24,7 @@ Please ensure that you have the following prerequisites and dependencies in plac
 * Docker: Docker is required as part of this installation. 
 * Git: Git is required to clone this repository.
 
-# Installation Instructions
+### Installation Instructions
 
 Note: these installation Instructions has only been tested against Linux Based platforms. 
 
@@ -86,23 +86,23 @@ Run python cluster_controller.py, this will start the controller UI. Within the 
 python3 cluster_controller.py
 ```
 
-Step One: Pull Core Images
+1) Pull Core Images
 
 Note: During the first installation, the cluster controller will pull the Network Vista core image. As these core images are fairly large, please be patient.
 
 ![readmeImages/img10.png](readmeImages/img10.png)
 
-Step Two: Check the Cluster Status, all containers should be displaying down.
+2) Check the Cluster Status, all containers should be display down.
 
 ![readmeImages/img11.png](readmeImages/img11.png)
 
-Step Three: Start the Cluster
+3) Start the Cluster
 
 ![readmeImages/img0.png](readmeImages/img0.png)
 
 ![readmeImages/img1.png](readmeImages/img1.png)
 
-Step Four: Check Cluster Status, all containers should be active. 
+4) Check Cluster Status, all containers should be active. 
 
 ![readmeImages/img2.png](readmeImages/img2.png)
 
@@ -112,7 +112,7 @@ To stop the cluster, please select the Stop Cluster option.
 
 Click https://127.0.0.1 to access Network Vista.
 
-# Support with using Network Vista
+### Support with using Network Vista
 
 For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon or 
 review the "how to" guides which are found within the howTo directory, located within this repository
