@@ -90,25 +90,25 @@ python3 cluster_controller.py
 
 Note: During the first installation, the cluster controller will pull the Network Vista core image. As these core images are fairly large, please be patient.
 
-![readmeImages/img10.png](readmeImages/img10.png)
+![img.png](img.png)
 
 2) Check the Cluster Status, all containers should be display down.
 
-![readmeImages/img11.png](readmeImages/img11.png)
+![img_1.png](img_1.png)
+
+![img_7.png](img_7.png)
 
 3) Start the Cluster
 
-![readmeImages/img0.png](readmeImages/img0.png)
-
-![readmeImages/img1.png](readmeImages/img1.png)
+![img_3.png](img_3.png)
 
 4) Check Cluster Status, all containers should be active. 
 
-![readmeImages/img2.png](readmeImages/img2.png)
+![img_4.png](img_4.png)
 
-![readmeImages/img3.png](readmeImages/img3.png)
+To stop the cluster, please select the Stop Cluster option.
 
-To stop the cluster, please select the Stop Cluster option. 
+
 
 Click https://127.0.0.1 to access Network Vista.
 
