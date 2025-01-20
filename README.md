@@ -90,21 +90,21 @@ python3 cluster_controller.py
 
 Note: During the first installation, the cluster controller will pull the Network Vista core image. As these core images are fairly large, please be patient.
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 2) Check the Cluster Status, all containers should be display down.
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
-![img_7.png](img_7.png)
+![img_7.png](img/img_7.png)
 
 3) Start the Cluster
 
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 
 4) Check Cluster Status, all containers should be active. 
 
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 To stop the cluster, please select the Stop Cluster option.
 
