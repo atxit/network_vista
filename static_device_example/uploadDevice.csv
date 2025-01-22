@@ -1,0 +1,8 @@
+﻿hostName,ipAddress,regionId,siteId
+r1,192.168.0.241,emea,abc
+r2,192.168.0.242,emea,xyz
+r3,192.168.0.243,emea,xyz
+r4,192.168.0.248,emea,xyz
+esw1,192.168.0.245,emea,xyz
+esw2,192.168.0.246,emea,xyz
+esw3,192.168.0.247,emea,xyz
