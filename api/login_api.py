@@ -59,7 +59,6 @@ def system_login(url, username, password):
     else:
         print(response.text)
 
-
 if __name__ == "__main__":
     url, username, password, db_name = collect_args()
     system_login(url, username, password)

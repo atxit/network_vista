@@ -1,0 +1,30 @@
+EXAMPLE:
+  - hostName: r1
+    ipAddress: 192.168.0.241
+    regionId: emea
+    siteId: abc
+
+  - hostName: r2
+    ipAddress: 192.168.0.242
+    regionId: emea
+    siteId: abc
+
+  - hostName: r3
+    ipAddress: 192.168.0.243
+    regionId: emea
+    siteId: abc
+
+  - hostName: esw1
+    ipAddress: 192.168.0.245
+    regionId: emea
+    siteId: abc
+
+  - hostName: esw2
+    ipAddress: 192.168.0.246
+    regionId: emea
+    siteId: abc
+
+  - hostName: esw3
+    ipAddress: 192.168.0.247
+    regionId: emea
+    siteId: abc
