@@ -53,6 +53,7 @@ techTip to MacUsers
 Due to an additional layer of security, Mac users must grant access to the ~/data/db directory, this can be done by using the Docker desktop App.
 </i>
 
+
 Run python setup.py file, this will:
 
 * generated system default passwords which includes the root access password<i>(found in the system.yml file, located in the project root</i>
@@ -61,7 +62,6 @@ Run python setup.py file, this will:
 * pull the Mongo Docker image.
 * enable a Mongo password on each database
 * generate default SSL certs which are stored in ~/network_vista_certs/ and used by the NGINX container. 
-
 
 <i>
 techTip: during the setup process, a docker permission error may be displayed. If seen, try using the following command to 

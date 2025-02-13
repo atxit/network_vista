@@ -3,7 +3,7 @@ import json
 import urllib3
 import yaml
 
-from login_api import system_login, collect_args
+from args import collect_args
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -14,18 +14,20 @@ def read_yaml():
     return data
 
 
-def upload_dynamic_devices(url, token):
+def upload_devices():
+    url, token = collect_args()
     resp = requests.post(
-        url=f"{url}/table_api/uploadDynamicDevices/",
+        url=f"{url}/api/uploadDevices/",
         verify=False,
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", "Authorization": token},
         data=json.dumps({"token": token, "records": read_yaml()['EXAMPLE']}),
-        timeout=3,
+        timeout=5,
     )
-    return resp
+    if resp.ok:
+        print(resp.json())
+    else:
+        print(resp.text)
 
 
 if __name__ == "__main__":
-    arg_url, arg_username, arg_password, _ = collect_args()
-    session_token = system_login(arg_url, arg_username, arg_password)
-    upload_dynamic_devices(arg_url, session_token)
+    upload_devices()
