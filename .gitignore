@@ -8,7 +8,7 @@ __pycache__/
 
 .idea
 system.yml
-
+api/device_example.yml
 # Distribution / packaging
 .Python
 build/

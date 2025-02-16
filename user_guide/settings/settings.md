@@ -1,29 +1,29 @@
 # Settings
 
-Log into Network Vista, open the menu (top left), select settings:
+*techTip: Settings is only visible to root, admin, and sudo admin users*
 
+Log into Network Vista, open the menu (top left), and select **Settings**:
 
 ![img.png](imgs/img.png)
 
-<i>techTip: Settings is only visible to root, admin and sudo admin users</i>
 #### System Administrator
 
-In addition to the Network Vista root account, there is also an admin account. To enable the admin user account, please add a password. A minimum length of
-Eight characters is required. Once ready, click Save.
+In addition to the Network Vista root account, there is also an admin account. To enable the admin user account, 
+add a password with a minimum length of eight characters. Once set, click **Save**.
 
 ![img_1.png](imgs/img_1.png)
 
 #### Sudo Administrators
 
-Sudo Admin Users are standard users which have elevated rights. Network Vista employees Roles Based Access Controls 
-for certain functions (making changes). Add the users ID to one of the three input fields and click Save. 
+Sudo Admin Users are standard users with elevated rights. Network Vista employs Role-Based Access Control (RBAC) for certain functions, such as making changes. 
+To grant access, add the user’s ID to one of the three input fields and click **Save**
 
 ![img_2.png](imgs/img_2.png)
 
 #### Static Users
 
-Static Users are accounts which can be created to access Network Vista. Static users are standard users unless elevated to Sudo Administrators. 
-Add the user ID to the filed and select Save. 
+Static users are accounts that can be created to access Network Vista. By default, static users are standard users unless elevated to Sudo Administrators.
+Enter the user ID in the field and select **Save**. 
 
 ![img_3.png](imgs/img_3.png)
 
@@ -93,11 +93,40 @@ the total number of concurrent collections
 * 60 Device Sessions
 * 90 Device Sessions
 
+#### Network Vista Managed Databases
+
+Network Vista has a small number of purpose built databases which can be enabled or disabled within the settings module.
+
+* To enable the collection of the configuration DBs, select the 'Collect Configuration Db' option
+* To enable Network Vista to compare the running configuration file against the startup, select the 'Running CFG vs StartUp CFG' option
+* To enable Network Vista to collect and enrich inventory data, select the 'Collect Inventory Db' option
+
+<i>techTip: Running CFG vs StartUp CFG requires Collect Configuration Db</i>
+
+#### Network Vista API Keys
+
+To enable the Network Vista API interface, please following the following steps. 
+
+To generate a readWrite API key, click the 'Request Read Write' button
+To generate a readOnly API key, click the 'Request Read Only' button
+
+Warning: Any stored keys will be replaced. 
+
+![img_23.png](imgs/img_23.png)
+
+Click 'Yes' to proceed or 'No'
+
+![img_21.png](imgs/img_21.png)
+
+The new API key will appear for 15 seconds. Click on the API key, this will save it to the clipboard. Save the API in a secure location.
+
+![img_24.png](imgs/img_24.png)
+
 #### Meraki API Key
 
 To enable the Meraki collection process, please enter a valid Meraki key. Just like the SSH password, read only is recommended. 
 
-Once ready, click 'Save and Test'. If successful, the Meraki menu will be activated. 
+Once ready, click **'Test and Save'**. If successful, the Meraki menu will be activated. 
 <i>techTip: If there is a Meraki organisation that should not be included, enter the organisation Id (numbers only)</i>
 
 ![img_8.png](imgs/img_8.png)
@@ -106,14 +135,17 @@ Once ready, click 'Save and Test'. If successful, the Meraki menu will be activa
 
 To enable LDAP integration, please enter the following information:
 
-* LDAP IP or DNS Name: The LDAP Server or VIP.
-* Match on attr: The attribute to match on (ou for example).
-* Bind DN: The location of the user search (uid=username,ou=users,dc=example,dc=org).
-* Group user membership, when one or more groups are matched, access to Network Vista is granted.
-* LDAP Admin Group, when matched, the user is grant admin access. 
-* Test username and test password: runs a test using the provided information, if successful, LDAP is enabled across the platform. 
+* LDAP IP or DNS Name: The LDAP server or VIP.
+* Match on Attr: The attribute to match on (e.g., ou).
+* Bind DN: The location of the user search (e.g., uid=username,ou=users,dc=example,dc=org).
+* Group User Membership: Access to Network Vista is granted when one or more groups are matched.
+* LDAP Admin Group: When matched, the user is granted admin access.
+* Test Username and Test Password: Runs a test using the provided information. 
 
-Click 'Test & Save'
+
+If successful, LDAP is enabled across the platform.
+
+Click **'Test & Save'**
 
 ![img_9.png](imgs/img_9.png)
 

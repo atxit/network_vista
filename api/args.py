@@ -1,5 +1,6 @@
 import argparse
 import sys
+from getpass import getpass
 
 
 def collect_args():
@@ -16,7 +17,7 @@ def collect_args():
     else:
         url = args.u
     if args.t is None:
-        token = input("token:")
+        token = getpass("token:")
     else:
         token = args.t
     if (token is not None and len(token)) == 0 and (url is not None and len(url)):

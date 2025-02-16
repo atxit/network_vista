@@ -10,16 +10,17 @@ Infra Scheduler
 
 Collection can be scheduled every two hours starting at 12am UTC
 
-![img_1.png](img_1.png)
+![img_1.png](imgs/img_1.png)
 
 Meraki Scheduler
 
 Collection can be scheduled every two hours starting at 1am UTC
 
-![img.png](img.png)
+![img.png](imgs/img.png)
 
 Both Infra and Meraki Scheduler support on-demand collections. Click the play arrow button next to the menu icon. 
 
 <i>techTip: On-demand collection is only available if the scheduling process is idle</i>
+
 <i>techTip: If the play arrow button is not visible, the scheduler is already running</i>
 
