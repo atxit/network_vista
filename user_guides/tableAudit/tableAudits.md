@@ -1,11 +1,11 @@
 # Table Audits
 
-Log into Network Vista, open the menu ![img.png](img.png), select a database, then click ![img_2.png](img_2.png)
+Log into Network Vista, open the menu ![img.png](imgs/img.png), select a database, then click ![img_2.png](imgs/img_2.png)
 
 The Table Audit feature allows users to create custom audit tests that run against the table. These tests can be used to validate data and state.
-To create a table audit, click  ![img_3.png](img_3.png) 
+To create a table audit, click  ![img_3.png](imgs/img_3.png) 
 
-![img_4.png](img_4.png)
+![img_4.png](imgs/img_4.png)
 
 #### When(then) vs If
 
@@ -28,19 +28,19 @@ To reduce false positives, consider using the When/Then option. If all values mu
 * and starts with: and starts with
 * columns: hardware
 
-![img_5.png](img_5.png)
+![img_5.png](imgs/img_5.png)
 
 Click Save
 
-![img_6.png](img_6.png)
+![img_6.png](imgs/img_6.png)
 
-To start the audit, click ![img_7.png](img_7.png)
+To start the audit, click ![img_7.png](imgs/img_7.png)
 
 <i>TechTip: Audit process runs each time Network Vista runs a collection</i>
 
-Click ![img_8.png](img_8.png) to view the results
+Click ![img_8.png](imgs/img_8.png) to view the results
 
-![img_9.png](img_9.png)
+![img_9.png](imgs/img_9.png)
 
 
 In the results, we see three skips and three matches. When the platform is 7206vxr then we expect software image to be C7200-ADVIPSERVICESK9_LI-M.
