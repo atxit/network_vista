@@ -47,16 +47,30 @@ Run setup.sh, this will:
 ```bash
 . setup.sh
 ```
+<i>
+techTip to MacUsers
+
+Due to an additional layer of security, Mac users must grant access to the ~/data/db directory, this can be done by using the Docker desktop App.
+</i>
+
 
 Run python setup.py file, this will:
 
-* generate system default passwords, which is used by Network Vista. These are found in the system.yml file (found in the root of the project)
+* generated system default passwords which includes the root access password<i>(found in the system.yml file, located in the project root</i>
 * create a default location for the Mongo Databases (~/data/db).
 * test connectivity to the docker hub.
 * pull the Mongo Docker image.
 * enable a Mongo password on each database
 * generate default SSL certs which are stored in ~/network_vista_certs/ and used by the NGINX container. 
 
+<i>
+techTip: during the setup process, a docker permission error may be displayed. If seen, try using the following command to 
+resolve the permission issue. 
+</i>
+
+```bash
+sudo chown $(whoami):$(whoami) /var/run/docker.sock
+```
 
 System passwords are found in the system.yml file, these are generated during the setup process and are unique to each deployment.
 The Network Vista Root password is found within system.yml. 
@@ -108,11 +122,16 @@ Note: During the first installation, the cluster controller will pull the Networ
 
 To stop the cluster, please select the Stop Cluster option.
 
+Open a web browser, enter https://[ipOfHost], and accept the self-signed cert.
+Lastly, accept the end user license and the Network Vista cluster is up and ready to go!. 
 
+![img.png](img/license.png)
 
-Click https://127.0.0.1 to access Network Vista.
+Network Vista Login
+
+![img.png](img/login.png)
 
 ### Support with using Network Vista
 
-For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon or 
-review the "how to" guides which are found within the howTo directory, located within this repository
+For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQ or 
+review the user guides which are found within the user_guide directory, located within this repository
