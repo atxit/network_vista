@@ -122,8 +122,6 @@ Note: During the first installation, the cluster controller will pull the Networ
 
 To stop the cluster, please select the Stop Cluster option.
 
-
-
 Open a web browser, enter https://[ipOfHost], and accept the self-signed cert.
 Lastly, accept the end user license and the Network Vista cluster is up and ready to go!. 
 
@@ -135,5 +133,5 @@ Network Vista Login
 
 ### Support with using Network Vista
 
-For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQon or 
+For support on how to use Network Vista, please check out my YouTube Channel https://www.youtube.com/channel/UCBLGibrwjedh2GW4nrF8bzQ or 
 review the user guides which are found within the user_guide directory, located within this repository
