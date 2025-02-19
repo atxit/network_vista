@@ -7,7 +7,7 @@ network device table must be populated.
 Importing devices into the Network Vista device Table can be done by either:
 
 * uploading via a static .csv file (lab/demo); or 
-* using the import device API (preferred option), these devices are known as dynamic within Network Vista
+* using the import device API (preferred option)
 
 <i>techTip:
 * devices which are uploaded to Network Vista via a .csv file are known as 'static'.
@@ -28,7 +28,7 @@ dynamic devices will be removed. This way, any device which is no longer active/
 Before starting, please a Read/Write Network Vista API key (refer to the setting.md for further instructions). Once the key is 
 generated, navigate to the api directory. Next, open the 'device_example.yml' file:
 
-The format of the JSON payload is a record, list of directories [{},{},{}]
+The format of the JSON payload is a record, list of dictionaries [{},{},{}]
 
 device_example.yml:
 
@@ -50,7 +50,7 @@ Navigate to the api directory, enter
 -u url of Network Vista<br>
 -t token, either readOnly or ReadWrite
 
-```bash
+```
 python3 api_ping_test.py -u https://ipAddr_dnsName -t thisIsYourToken
 ```
 
@@ -71,7 +71,7 @@ Navigate to the api directory, enter
 -u url of Network Vista<br>
 -t token, either readOnly or ReadWrite
 
-```bash
+```
 python3 upload_devices.py -u https://ipAddr_dnsName -t thisIsYourToken
 ```
 

@@ -118,7 +118,8 @@ Click 'Yes' to proceed or 'No'
 
 ![img_21.png](imgs/img_21.png)
 
-The new API key will appear for 15 seconds. Click on the API key, this will save it to the clipboard. Save the API in a secure location.
+The new API key will appear for 15 seconds. Click on the API key, this will save it to the clipboard. Save the API key in a 
+secure location as it can never to viewed again.
 
 ![img_24.png](imgs/img_24.png)
 
