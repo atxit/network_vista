@@ -1,0 +1,83 @@
+<h1>Network Vista Compliance Audit</h1>
+<p>Log into Network Vista, open the menu (top left), select infra then Compliance Audit</p>
+<p><i>techTip: Some feature within the audit module are restricted root, admin and sudo admin users</i></p>
+<p>Before starting, please confirm that Network Vista is <strong>Collect Configuration Db</strong> enabled. </p>
+<p><img alt="img.png" src="img.png" /></p>
+<p>Once confirmed and the Network Vista collection process has completed, following these steps</p>
+<h5>Menu Icons</h5>
+<p><img alt="img_1.png" src="img_1.png" /> DashBoard Summary Page</p>
+<p><img alt="img_2.png" src="img_2.png" /> Table Results Page</p>
+<p><img alt="img_3.png" src="img_3.png" /> Device Level Results Page</p>
+<p><img alt="img_4.png" src="img_4.png" /> Input Device Variables</p>
+<p><img alt="img_5.png" src="img_5.png" /> Audit Template builder</p>
+<p><img alt="img_6.png" src="img_6.png" /> Template and Variable assignment</p>
+<h4>Audit Template builder</h4>
+<p>The Audit template build is where we create test templates which will be used to audit the configuration files.</p>
+<p><img alt="img_7.png" src="img_7.png" /></p>
+<p>In this example, I will be creating a test that will confirm that my NTP servers are setup as expected</p>
+<p>In this example, my template name is <strong>ntpAudit</strong>, and I am validating that <strong>ntp server 1.1.1.1</strong> is present across all devices. 
+<img alt="img_8.png" src="img_8.png" /></p>
+<p>Once ready, click the save button <img alt="img_10.png" src="img_10.png" /></p>
+<p><img alt="img_9.png" src="img_9.png" /></p>
+<p>Next, click on Template and Variable assignment <img alt="img_6.png" src="img_6.png" /></p>
+<p><img alt="img_11.png" src="img_11.png" /></p>
+<p>Select the devices which should use this audit test template. In this example, all devices will be enabled.</p>
+<p><i>techTip: Click the filter button <img alt="img_12.png" src="img_12.png" /> in the column to enable or disable all items within the column,
+then to disable the filter, click <img alt="img_13.png" src="img_13.png" /></i></p>
+<p><img alt="img_14.png" src="img_14.png" /></p>
+<p>If needed, this table can reverted back to the last save, click ** restore ** <img alt="img_15.png" src="img_15.png" /></p>
+<p><img alt="img_16.png" src="img_16.png" /></p>
+<p>Last step is to navigate to the Table Results Page <img alt="img_2.png" src="img_2.png" /> and push the start arrow button <img alt="img_17.png" src="img_17.png" /></p>
+<p><img alt="img_18.png" src="img_18.png" /></p>
+<p>Results will be display once processing completes. </p>
+<p>Reading the result, 50% of the devices failed. This is due to these devices using a different NTP source <strong>2.2.2.2</strong>.
+I could place another test under <strong>ntpAudit</strong> however, this would still result in a 50% failure. </p>
+<p><img alt="img_19.png" src="img_19.png" /></p>
+<p>As expected</p>
+<p><img alt="img_20.png" src="img_20.png" /></p>
+<p>To resolve this, we must use regional vars. Regional Vars (or variables) are values which are swapped out depending on device locations. </p>
+<p>navigate to Input Device Variables <img alt="img_4.png" src="img_4.png" /></p>
+<p><img alt="img_21.png" src="img_21.png" /></p>
+<p>Start by unlocking the table <img alt="img_22.png" src="img_22.png" /></p>
+<ul>
+<li>varKey: a key (or name) which is used within the test audit template, <strong>ntpOne</strong></li>
+<li>varRegion: the region in which the varKey resides, <strong>emea</strong></li>
+<li>varValue: the value that will replace the varKey, <strong>1.1.1.1</strong></li>
+</ul>
+<p>To add another row, click <img alt="img_23.png" src="img_23.png" />. To remove a row, click <img alt="img_24.png" src="img_24.png" /> then the trash button on the row that needs to be removed <img alt="img_25.png" src="img_25.png" /></p>
+<p><img alt="img_26.png" src="img_26.png" /></p>
+<p>Once ready, click <img alt="img_27.png" src="img_27.png" /> and Save <img alt="img_28.png" src="img_28.png" />. Nagiavte back to the Audit Template builder <img alt="img_5.png" src="img_5.png" /></p>
+<p>Remove the two existing tests by click the trash icon.</p>
+<p>Instead of enter <strong>ntp server 1.1.1.1</strong>, this time I enter <strong>ntp server {ntpOne}</strong>. The top right information box will display errors. </p>
+<p><img alt="img_30.png" src="img_30.png" /></p>
+<p>Click Save</p>
+<p><img alt="img_31.png" src="img_31.png" /></p>
+<p>Navigate back to the Template and Variable assignment <img alt="img_6.png" src="img_6.png" />. </p>
+<p>NOTE: Since I removed the two existing audit tests <i>before</i> I added the new regional var rule, all devices were unassigned. 
+To maintain assessment, it is best to add <i>then</i> remove audit tests. </p>
+<ul>
+<li>emea will contain: r1,r2 &amp; r3</li>
+<li>apac will contain: esw1, esw2 &amp; esw3</li>
+<li>all devices will be assigned to the ntpAudit template</li>
+</ul>
+<p><i>techTip: devices can only be assigned to one region at a time but can belong to one or more audit templates</i></p>
+<p><img alt="img_32.png" src="img_32.png" /></p>
+<p>Navigate back to the Table Results Page <img alt="img_2.png" src="img_2.png" /> and restart the test.</p>
+<p>everything is passing</p>
+<p><img alt="img_33.png" src="img_33.png" /></p>
+<p>Navigate back to the Device Level Results Page <img alt="img_3.png" src="img_3.png" /></p>
+<p><img alt="img_34.png" src="img_34.png" /></p>
+<p>We can see that the keyVar has been replaced with the keyValue.</p>
+<p>Another useful feature of the compliance audit tool is if/when condition:</p>
+<ul>
+<li>if: strict match, must be present</li>
+<li>when: test condition one, if matched, then test condition two and/or three (if used)</li>
+</ul>
+<p>Whenever a <strong>when</strong> statement is used, the logic that Network Vista will apply is, if the condition is not met, skip conditions two and three (if provided).</p>
+<p>This does not affect the overall audit score of a device.</p>
+<p>In this example, any device which has OSPF enabled must log adjacency changes (log-adjacency-changes)</p>
+<p><img alt="img_35.png" src="img_35.png" /></p>
+<p><img alt="img_36.png" src="img_36.png" /></p>
+<p>Navigate back to the Table Results Page <img alt="img_2.png" src="img_2.png" /> and restart the test.</p>
+<p><img alt="img_37.png" src="img_37.png" /></p>
+<p>Five Skips and One Pass, as expected</p>

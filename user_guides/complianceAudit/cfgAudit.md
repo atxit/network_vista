@@ -32,7 +32,7 @@ The Audit template build is where we create test templates which will be used to
 
 ![img_7.png](img_7.png)
 
-In this example, I will be creating a test that will confirm that my NTP servers are setup as expected
+In this example, I will be creating a test that will confirm that my NTP servers are set up correctly.
 
 In this example, my template name is **ntpAudit**, and I am validating that **ntp server 1.1.1.1** is present across all devices. 
 ![img_8.png](img_8.png)
@@ -144,6 +144,18 @@ Navigate back to the Table Results Page ![img_2.png](img_2.png) and restart the 
 ![img_37.png](img_37.png)
 
 Five Skips and One Pass, as expected
+
+Click on the results icon ![img_39.png](img_39.png) to see device level results 
+
+#### Summary View
+
+Navigate back to the DashBoard Summary Page ![img_1.png](img_1.png)
+
+![img_38.png](img_38.png)
+
+<i>techTip: Each device summary ring is hyperlinked, click on the device to see a detail view of the audit results</i>
+
+
 
 
 
