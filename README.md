@@ -26,7 +26,7 @@ Please ensure that you have the following prerequisites and dependencies in plac
 
 ### Installation Instructions
 
-Note: these installation Instructions has only been tested against Linux Based platforms. 
+Note: installation instructions have been tested using by Linux and MacBook (Apple silicon) platforms. 
 
 Clone this repository
 ```bash
