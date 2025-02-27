@@ -1,0 +1,34 @@
+<h1>Network Vista System Tables</h1>
+<p>There are a number of Network Vista System tables which provide system level outputs such as collection results and logs. </p>
+<p>Log into Network Vista, open the menu (top left), select Root/Admin </p>
+<p><i>techTip: Scheduler is only visible as root, admin and sudo admin user</i></p>
+<ul>
+<li>Job Status: Realtime view of all the Network Vista jobs and processes</li>
+</ul>
+<p><img alt="img.png" src="imgs/img.png" /></p>
+<ul>
+<li>Logs: Realtime view of all the Network Vista logs</li>
+</ul>
+<p><img alt="img_1.png" src="imgs/img_1.png" /></p>
+<ul>
+<li>Collection Error: SSH collection results</li>
+</ul>
+<p>Log into Network Vista, open the menu (top left), select Infra -&gt; Collection Errors</p>
+<p><img alt="img_2.png" src="imgs/img_2.png" /></p>
+<ul>
+<li>importTime: time of collection.</li>
+<li>importState: ok = ssh was successful, failed = SSH timed out.</li>
+<li>parsed: collected output is in the correct structure to be imported into the database.</li>
+<li>importStateFailed: SSH failure.</li>
+<li>noOutput; No output was detected from the show command.</li>
+<li>vrfNotFound: when using the dynamic vrf feature, no vrf found is displayed if no VRF where found (IOS only)</li>
+<li>
+<p>string: Normal condition when found under <strong>show running-config</strong> or <strong>show startup-config</strong></p>
+</li>
+<li>
+<p>DB Import Status: Database import results</p>
+</li>
+</ul>
+<p>Log into Network Vista, open the menu (top left), select Infra -&gt; DB Import Status</p>
+<p><img alt="img_3.png" src="imgs/img_3.png" /></p>
+<p>Each column displays the total number of rows which were imported (per device, per show output).</p>

@@ -436,8 +436,10 @@ class DockerHelper:
                     if total_layers > 0:
                         overall_progress = (downloaded_layers / total_layers) * 100
                         self.print_stdscr(f"Progress: {overall_progress:.2f}%")
-
-                    self.print_stdscr(f"Status: {status} | Layer: {layer_id} | Progress: {progress}")
+                    try:
+                        self.print_stdscr(f"Status: {status} | Layer: {layer_id} | Progress: {progress}")
+                    except Exception:
+                        pass
             except docker.errors.NotFound:
                 self.print_stdscr(f'{image_id} not found')
                 time.sleep(4)

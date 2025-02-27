@@ -1,4 +1,5 @@
-### Suggested Reading User Guide Order
+### Suggested User Reading Guide Order
+
 
 When setting up Network Vista for the first time, read and implement in the following order:
 

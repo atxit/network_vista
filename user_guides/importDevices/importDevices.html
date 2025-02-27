@@ -1,0 +1,57 @@
+<h1>Importing Devices into Network Vista</h1>
+<p><i>techTip: Importing devices is permitted by root, admin and sudo admin users</i></p>
+<p>Before Network Vista can begin collecting and processing collected network data, the 
+network device table must be populated. 
+Importing devices into the Network Vista device Table can be done by either:</p>
+<ul>
+<li>uploading via a static .csv file (lab/demo); or </li>
+<li>using the import device API (preferred option)</li>
+</ul>
+<p><i>techTip:
+* devices which are uploaded to Network Vista via a .csv file are known as 'static'.
+* devices which are uploaded to Network Vista via the API are known as 'dynamic'.
+</i></p>
+<p>For instructions on how to upload using a static .csv, please refer to the settings.md
+When using the API import method, each time the API uploads device data, all
+dynamic devices will be removed. This way, any device which is no longer active/used will be automatically removed from the collection process.</p>
+<p><i>techTip: any static device found in the device table will take precedence over a dynamic device 
+, Network Vista will reject the dynamic host which contains the duplicate hostnames. 
+</i></p>
+<h3>Importing Devices using the API</h3>
+<p><i>techTip: Network Vista does not self discover network devices. As such, a custom import device script will need to be created.</i></p>
+<p>Before starting, please a Read/Write Network Vista API key (refer to the setting.md for further instructions). Once the key is 
+generated, navigate to the api directory. Next, open the 'device_example.yml' file:</p>
+<p>The format of the JSON payload is a record, list of dictionaries [{},{},{}]</p>
+<p>device_example.yml:</p>
+<p><img alt="img.png" src="imgs/img.png" /></p>
+<p>When creating each dictionary (with the list), each key is mandatory. </p>
+<ul>
+<li>Map the device hostname to the "hostName" key</li>
+<li>Map the device management IP to the "ipaAddress" key</li>
+<li>Map the device regional location to the "regionId" key</li>
+<li>Map the device site ID to the "siteId" key</li>
+</ul>
+<p><i>techTip: If the regional or site IDs are not known, enter a value of "unknown"
+</i></p>
+<h3>Test API Connectivity</h3>
+<p>Navigate to the api directory, enter</p>
+<p>-u url of Network Vista<br>
+-t token, either readOnly or ReadWrite</p>
+<p><code>python3 api_ping_test.py -u https://ipAddr_dnsName -t thisIsYourToken</code></p>
+<p><img alt="img_1.png" src="imgs/img_1.png" /></p>
+<p><i>techTip: Only a readWrite token can upload devices to the device table</i> 
+<br></p>
+<h3>Upload using Example</h3>
+<p>To upload devices using the device_example.yml example file:</p>
+<ul>
+<li>update the file with the correct details</li>
+<li>save the file</li>
+</ul>
+<p>Navigate to the api directory, enter</p>
+<p>-u url of Network Vista<br>
+-t token, either readOnly or ReadWrite</p>
+<p><code>python3 upload_devices.py -u https://ipAddr_dnsName -t thisIsYourToken</code></p>
+<p><img alt="img_2.png" src="imgs/img_2.png" /></p>
+<p><i>techTip: r1 was rejected/removed from the update as it has been statically defined within Network Vista
+</i></p>
+<p><img alt="img_3.png" src="imgs/img_3.png" /></p>
