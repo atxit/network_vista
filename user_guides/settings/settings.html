@@ -1,0 +1,110 @@
+<h1>Settings</h1>
+<p><em>techTip: Settings is only visible to root, admin, and sudo admin users</em></p>
+<p>Log into Network Vista, open the menu (top left), and select <strong>Settings</strong>:</p>
+<p><img alt="img.png" src="imgs/img.png" /></p>
+<h4>System Administrator</h4>
+<p>In addition to the Network Vista root account, there is also an admin account. To enable the admin user account, 
+add a password with a minimum length of eight characters. Once set, click <strong>Save</strong>.</p>
+<p><img alt="img_1.png" src="imgs/img_1.png" /></p>
+<h4>Sudo Administrators</h4>
+<p>Sudo Admin Users are standard users with elevated rights. Network Vista employs Role-Based Access Control (RBAC) for certain functions, such as making changes. 
+To grant access, add the user’s ID to one of the three input fields and click <strong>Save</strong></p>
+<p><img alt="img_2.png" src="imgs/img_2.png" /></p>
+<h4>Static Users</h4>
+<p>Static users are accounts that can be created to access Network Vista. By default, static users are standard users unless elevated to Sudo Administrators.
+Enter the user ID in the field and select <strong>Save</strong>. </p>
+<p><img alt="img_3.png" src="imgs/img_3.png" /></p>
+<p><i>techTip: Network Vista supports LDAP integration, in addition to static users</i></p>
+<p><img alt="img_4.png" src="imgs/img_4.png" /></p>
+<p>Please provide the 'registrationId' to the user and have then following the new user guide. Once registered, the 'registrationStatus' will change from 'unregistered' to 'registrationComplete' (the registrationCode will disappear) </p>
+<p><img alt="img_5.png" src="imgs/img_5.png" /></p>
+<p>To remove a user, click the remove (trash) icon. </p>
+<h4>Static Device Management</h4>
+<p>There are two methods to import devices into Network Vista: </p>
+<p>1) through the API, or;
+2) upload using a .csv file</p>
+<p>For a lab or a demo environment, using the static method would be the easiest approach.</p>
+<p>To add a device or set of devices, click on the 'choose file' button. </p>
+<p><i>techTip: The .csv file must contain the following columns:</i></p>
+<p><img alt="img_6.png" src="imgs/img_6.png" /></p>
+<p>Once ready, click upload</p>
+<p><img alt="img_7.png" src="imgs/img_7.png" /></p>
+<p>To remove all static devices, click 'remove table'. </p>
+<p>To view the imported device table, navigate to the infra/device tab (once the infra menu has been activated)</p>
+<p><img alt="img.png" src="imgs/img_20.png" /></p>
+<h4>Infrastructure SSH Access</h4>
+<p>To enable the SSH collection process, a username and password is required. The SSH password is encrypted by the vault seed password found in the system.yml file.  </p>
+<p>Once ready, click 'Save Credentials'. </p>
+<p><i>techTip: Read Only Password is recommended.</i></p>
+<p><i>techTip: Once a SSH username and password has been saved, the infra menu will be activated.</i></p>
+<h4>Concurrent VTY &amp; SSH Sessions</h4>
+<p>Network Vista has been designed for rapid data collection. Use the 'Concurrent 
+VTY Sessions' and 'Concurrent SSH Sessions' selection inputs to adjust the following options:</p>
+<p>Concurrent VTY Sessions: </p>
+<p>number of active session PER Device</p>
+<ul>
+<li>One Vty Sessions</li>
+<li>Three Vty Sessions</li>
+<li>Five Vty Sessions</li>
+</ul>
+<p>Concurrent SSH Sessions: </p>
+<p>the total number of concurrent collections</p>
+<ul>
+<li>30 Device Sessions</li>
+<li>60 Device Sessions</li>
+<li>90 Device Sessions</li>
+</ul>
+<h4>Network Vista Managed Databases</h4>
+<p>Network Vista has a small number of purpose built databases which can be enabled or disabled within the settings module.</p>
+<ul>
+<li>To enable the collection of the configuration DBs, select the 'Collect Configuration Db' option</li>
+<li>To enable Network Vista to compare the running configuration file against the startup, select the 'Running CFG vs StartUp CFG' option</li>
+<li>To enable Network Vista to collect and enrich inventory data, select the 'Collect Inventory Db' option</li>
+</ul>
+<p><i>techTip: Running CFG vs StartUp CFG requires Collect Configuration Db</i></p>
+<h4>Network Vista API Keys</h4>
+<p>To enable the Network Vista API interface, please following the following steps. </p>
+<p>To generate a readWrite API key, click the 'Request Read Write' button
+To generate a readOnly API key, click the 'Request Read Only' button</p>
+<p>Warning: Any stored keys will be replaced. </p>
+<p><img alt="img_23.png" src="imgs/img_23.png" /></p>
+<p>Click 'Yes' to proceed or 'No'</p>
+<p><img alt="img_21.png" src="imgs/img_21.png" /></p>
+<p>The new API key will appear for 15 seconds. Click on the API key, this will save it to the clipboard. Save the API key in a 
+secure location as it can never to viewed again.</p>
+<p><img alt="img_24.png" src="imgs/img_24.png" /></p>
+<h4>Meraki API Key</h4>
+<p>To enable the Meraki collection process, please enter a valid Meraki key. Just like the SSH password, read only is recommended. </p>
+<p>Once ready, click <strong>'Test and Save'</strong>. If successful, the Meraki menu will be activated. 
+<i>techTip: If there is a Meraki organisation that should not be included, enter the organisation Id (numbers only)</i></p>
+<p><img alt="img_8.png" src="imgs/img_8.png" /></p>
+<h4>LDAP</h4>
+<p>To enable LDAP integration, please enter the following information:</p>
+<ul>
+<li>LDAP IP or DNS Name: The LDAP server or VIP.</li>
+<li>Match on Attr: The attribute to match on (e.g., ou).</li>
+<li>Bind DN: The location of the user search (e.g., uid=username,ou=users,dc=example,dc=org).</li>
+<li>Group User Membership: Access to Network Vista is granted when one or more groups are matched.</li>
+<li>LDAP Admin Group: When matched, the user is granted admin access.</li>
+<li>Test Username and Test Password: Runs a test using the provided information. </li>
+</ul>
+<p>If successful, LDAP is enabled across the platform.</p>
+<p>Click <strong>'Test &amp; Save'</strong></p>
+<p><img alt="img_9.png" src="imgs/img_9.png" /></p>
+<h4>Data Retention Policy</h4>
+<p>Defines the amount of time before stored logs messages will be removed. </p>
+<p>Diff Log Retention: </p>
+<ul>
+<li>One Month</li>
+<li>Three Months</li>
+<li>Five Months</li>
+</ul>
+<p>System Log Retention:</p>
+<ul>
+<li>One Month</li>
+<li>Two Months</li>
+<li>Three Months</li>
+<li>Four Months</li>
+<li>Five Months</li>
+</ul>
+<p><img alt="img_10.png" src="imgs/img_10.png" /></p>

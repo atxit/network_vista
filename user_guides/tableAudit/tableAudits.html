@@ -1,0 +1,31 @@
+<h1>Table Audits</h1>
+<p>Log into Network Vista, open the menu <img alt="img.png" src="imgs/img.png" />, select a database, then click <img alt="img_2.png" src="imgs/img_2.png" /></p>
+<p>The Table Audit feature allows users to create custom audit tests that run against the table. These tests can be used to validate data and state.
+To create a table audit, click  <img alt="img_3.png" src="imgs/img_3.png" /> </p>
+<p><img alt="img_4.png" src="imgs/img_4.png" /></p>
+<h4>When(then) vs If</h4>
+<p>Since each audit template assesses all table rows, you may need to create a test that focuses on a specific set of devices.</p>
+<p>For example, when writing a test to confirm that all 7206 devices are using a specific IOS version, using an If statement would result in a match but could fail when encountering other platform types.</p>
+<p>To reduce false positives, consider using the When/Then option. If all values must be present, use the If statement.</p>
+<h4>Example: audit 7206vxr hardware is running on  C7200-ADVIPSERVICESK9_LI-M</h4>
+<ul>
+<li>enter an audit name: 7206SW</li>
+<li>add first condition to match: 7206vxr</li>
+<li>match: is present</li>
+<li>and starts with: and starts with</li>
+<li>columns: hardware</li>
+<li><i>then</i></li>
+<li>add second condition to match: C7200-ADVIPSERVICESK9_LI-M</li>
+<li>match: is present</li>
+<li>and starts with: and starts with</li>
+<li>columns: hardware</li>
+</ul>
+<p><img alt="img_5.png" src="imgs/img_5.png" /></p>
+<p>Click Save</p>
+<p><img alt="img_6.png" src="imgs/img_6.png" /></p>
+<p>To start the audit, click <img alt="img_7.png" src="imgs/img_7.png" /></p>
+<p><i>TechTip: Audit process runs each time Network Vista runs a collection</i></p>
+<p>Click <img alt="img_8.png" src="imgs/img_8.png" /> to view the results</p>
+<p><img alt="img_9.png" src="imgs/img_9.png" /></p>
+<p>In the results, we see three skips and three matches. When the platform is 7206vxr then we expect software image to be C7200-ADVIPSERVICESK9_LI-M.
+As the platform was not a 7206vxr, condition one did not match so condition two was skipped. Skipped results are excluded are the final audit assessment score. </p>

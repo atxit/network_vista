@@ -8,17 +8,17 @@ Log into Network Vista, open the menu (top left), select Root/Admin
 
 * Job Status: Realtime view of all the Network Vista jobs and processes
 
-![img.png](img.png)
+![img.png](imgs/img.png)
 
 * Logs: Realtime view of all the Network Vista logs
 
-![img_1.png](img_1.png)
+![img_1.png](imgs/img_1.png)
 
 * Collection Error: SSH collection results
 
 Log into Network Vista, open the menu (top left), select Infra -> Collection Errors
 
-![img_2.png](img_2.png)
+![img_2.png](imgs/img_2.png)
 
 * importTime: time of collection.
 * importState: ok = ssh was successful, failed = SSH timed out.
@@ -32,7 +32,7 @@ Log into Network Vista, open the menu (top left), select Infra -> Collection Err
 
 Log into Network Vista, open the menu (top left), select Infra -> DB Import Status
 
-![img_3.png](img_3.png)
+![img_3.png](imgs/img_3.png)
 
 Each column displays the total number of rows which were imported (per device, per show output).
 

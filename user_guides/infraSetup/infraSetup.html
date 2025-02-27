@@ -1,0 +1,37 @@
+<h1>Infra setup</h1>
+<p><i>techTip: Infra Setup is only visible to <strong>root</strong>, <strong>admin</strong> and <strong>sudo admin users</strong></i></p>
+<p>Log into Network Vista, open the menu (top left), select infra then <strong>Infra Setup</strong></p>
+<p><img alt="img_1.png" src="imgs/img_1.png" /></p>
+<p>Use the Infra Setup module to enter show commands, which are then used to create the table databases. 
+Each database requires a unique DB ID and can support up to four show commands. 
+The show commands must be parsable using NTC parsers; otherwise, the database will not be created.</p>
+<p><img alt="img_2.png" src="imgs/img_2.png" /></p>
+<p>In this example, four databases have been created. Since the outputs of <strong>show cdp</strong> and <strong>show lldp</strong> are identical, they can be combined.</p>
+<p>For Cisco IOS devices that use VRFs, use $vrf instead of the VRF name. Network Vista will automatically resolve all device VRFs. </p>
+<p>To add a row, click <strong>'Add Row'</strong></p>
+<p><img alt="img_3.png" src="imgs/img_3.png" /></p>
+<ul>
+<li>Table Names should be unique with no special characters.</li>
+<li>Enter at least one NTC supported show command or one custom PPT parser (see ppt_parser.md).</li>
+</ul>
+<p>Once ready, click <strong>'Save Table'</strong></p>
+<p>To delete a Database, click <strong>'Delete'</strong>. This will remove the database and any dependant databases. </p>
+<p>Warning: this is unrecoverable once saved.</p>
+<p><img alt="img_4.png" src="imgs/img_4.png" /></p>
+<p><strong>Warning</strong>: Changing the database ID after a database has been created will result in the removal of that 
+database and any dependent databases.</p>
+<p><img alt="img_5.png" src="imgs/img_5.png" /></p>
+<p><i>techTip: Changes to the Infra Setup table are committed after the <strong>Save Table</strong> has been clicked</i></p>
+<h4>Example: Adding a new table Database</h4>
+<p>In this example, I am going to collecting ospf neighbor information from all OSPF enabled devices. </p>
+<p>Start by selecting the <strong>Add Row</strong> button. A new row will appear.</p>
+<p><img alt="img15.png" src="imgs/img_15.png" /></p>
+<p>Next, name the database and add the show command to the first show command column</p>
+<p><img alt="img_11.png" src="imgs/img_11.png" /></p>
+<p>Click <strong>Save Table</strong>, the table will refresh after the save has completed</p>
+<p><img alt="img_12.png" src="imgs/img_12.png" /></p>
+<p>The table will be populated during the next collection cycle. </p>
+<p>Dashboard view now displays the new database, it will remain orange until it is popluated with data. </p>
+<p><img alt="img_13.png" src="imgs/img_13.png" /></p>
+<p>After data import</p>
+<p><img alt="img_14.png" src="imgs/img_14.png" /></p>
