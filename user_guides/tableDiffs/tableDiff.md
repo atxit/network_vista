@@ -6,6 +6,7 @@ By default, when a table is first created, all diff processing is disabled. Foll
 
 **Note: Columns will remain empty until first fetch of data.**
 
+
 From the diff DB page, click ![img_2.png](imgs/img_2.png)
 
 ![img_3.png](imgs/img_3.png)

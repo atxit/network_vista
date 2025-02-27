@@ -69,7 +69,7 @@ To upload devices using the device_example.yml example file:
 Navigate to the api directory, enter
 
 -u url of Network Vista<br>
--t ReadWrite token
+-t token, either readOnly or ReadWrite
 
 ```
 python3 upload_devices.py -u https://ipAddr_dnsName -t thisIsYourToken
