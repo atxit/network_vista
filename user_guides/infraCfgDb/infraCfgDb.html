@@ -1,0 +1,29 @@
+<h1>Infra Configuration DB</h1>
+<p>Log into Network Vista, open the menu (top left), and select <strong>infra</strong> then <strong>Databases</strong> and <strong>cfgDb</strong>:</p>
+<p><img alt="img.png" src="imgs/img.png" /></p>
+<p>The infra configuration DB is similar to any other Network Vista database however, the input parser has been 
+custom-built to preserve the tree like structure of a standard configuration file. Whenever a branch or branch of branch 
+appears within the configuration file, Network Vista indents the output into the next column. This allows for better searching and slicing of data queries. </p>
+<p><i>Note: any column that contains no output will be automatically closed</i></p>
+<p>Example, searching <strong>ntp server</strong> under column zero (the root column)</p>
+<p><img alt="img_1.png" src="imgs/img_1.png" /></p>
+<p>then refining the query to include only <strong>r3</strong></p>
+<p><img alt="img_2.png" src="imgs/img_2.png" /></p>
+<h4>Extracting the Configuration file</h4>
+<p>To download a copy of a device configuration file, enter the name of the device in the download field found in the main navigation bar</p>
+<p><img alt="img_3.png" src="imgs/img_3.png" /></p>
+<p>Click <img alt="img_4.png" src="imgs/img_4.png" /> and Network Vista will download a copy of the file</p>
+<p><img alt="img_5.png" src="imgs/img_5.png" /></p>
+<p><img alt="img_6.png" src="imgs/img_6.png" /></p>
+<p>To download a copy of the viewable table, click <img alt="img_9.png" src="imgs/img_9.png" /></p>
+<p><img alt="img_8.png" src="imgs/img_8.png" /></p>
+<p><img alt="img_10.png" src="imgs/img_10.png" /></p>
+<h4>Config Diffs</h4>
+<p>To access the <strong>config diffs</strong>, click <img alt="img_7.png" src="imgs/img_7.png" />, the past Seven days of Diffs will be displayed.</p>
+<p><i>Note: unlikely regular Network Vista Diff tables, it is not possible to select and group diff's. Diff changes are automatically assigned to groupBy values</i></p>
+<h4>Diff's in action</h4>
+<p><img alt="img_12.png" src="imgs/img_12.png" /></p>
+<p>Example, added new loopback interface</p>
+<p><img alt="img_11.png" src="imgs/img_11.png" /></p>
+<p>New Loopback interface displayed in <strong>Green</strong></p>
+<p><img alt="img_13.png" src="imgs/img_13.png" /></p>

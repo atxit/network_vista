@@ -103,6 +103,8 @@ Network Vista has a small number of purpose built databases which can be enabled
 
 <i>techTip: Running CFG vs StartUp CFG requires Collect Configuration Db</i>
 
+![img35.png](imgs/img35.png)
+
 #### Network Vista API Keys
 
 To enable the Network Vista API interface, please following the following steps. 
